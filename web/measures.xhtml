@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <table>
+                    <tr><td>
+                            <div id="measuresMainBlock" >
+
+                                <div class="blockbottom" >
+                                    <h3><p:outputLabel value="Home Performance/Solar Pricing Tool" /></h3>
+                                </div>
+                                
+                                <div class="measuresblock1" >
+                                    <table><h4><tr><td>
+                                                    <!-- 1. Number1InsulatAtticBlown -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="1. Insulate Attic:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number1InsulatAtticBlownCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number1InsulatAtticBlownResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number1InsulatAtticBlownString" value="#{measureBean.number1InsulatAtticBlownString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Insulate Attic Blown in Fiberglass R-38 Value" itemValue="1.25" />
+                                                                            <f:selectItem itemLabel="Insulate Attic Blown in Fiberglass R-44 Value" itemValue="1.25" />
+                                                                            <f:selectItem itemLabel="Insulate Attic Cellalose R-38 Value" itemValue="1.25" />
+                                                                            <f:selectItem itemLabel="Insulate Attic Cellalose R-44 Value" itemValue="1.25" />
+                                                                            <p:ajax event="change" update="number1InsulatAtticBlownString, number1InsulatAtticBlownResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft1}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number1InsulatAtticBlownResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number1InsulatAtticBlownResult" value=" = #{measureBean.number1InsulatAtticBlownResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 2. Fresh Start -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="2. Fresh Start:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number2RemoveAndReplaceCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number2RemoveAndReplaceResult , hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:outputLabel value="Remove  and  Replace  Attic  Insulation" style="width:350px"  /></td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft2}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number2RemoveAndReplaceResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number2RemoveAndReplaceResult" value=" = #{measureBean.number2RemoveAndReplaceResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 3. Crawl Space Insulation -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="3. Crawl Space Insulation:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number3InstallBattedInsulationCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number3InstallBattedInsulationResult , hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px">
+                                                                        <p:outputLabel value="Install R-19 Batted Insulation (with Vapor Barrier) for conditioned space that's accessible" style="width:350px"  /></td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft3}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number3InstallBattedInsulationResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number3InstallBattedInsulationResult" value=" = #{measureBean.number3InstallBattedInsulationResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 4. Seal Ducting to Code Compliance Standards -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="4. Seal Ducting to Code Compliance Standards:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number4SealDuctingCodeComplianceCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number4SealDuctingCodeComplianceString" value="#{measureBean.number4SealDuctingCodeComplianceString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Seal Ducting to Code Compliance Standards" itemValue="1" />
+                                                                            <f:selectItem itemLabel="Seal Ducting to CCS for Both Systems" itemValue="1" />
+                                                                            <p:ajax event="change" update="number4SealDuctingCodeComplianceString, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft4}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number4SealDuctingCodeComplianceResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number4SealDuctingCodeComplianceResult" value=" = #{measureBean.number4SealDuctingCodeComplianceResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 5. Air Seal Package -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="5. Air Seal Package:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number5AirSealPackageCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number5AirSealPackageResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number5AirSealPackageString" value="#{measureBean.number5AirSealPackageString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Air Seal Attic Penetration to Target" itemValue="0.5" />
+                                                                            <f:selectItem itemLabel="Air Seal Attic/Floor Penetration to Target" itemValue="0.8" />
+                                                                            <f:selectItem itemLabel="Level 3 Air Seal Attic/Floor Penetration to Target" itemValue="1.1" />
+                                                                            <f:selectItem itemLabel="Install Mechanical Ventilation to meet BAS standards" itemValue="600" />
+                                                                            <p:ajax event="change" update="number5AirSealPackageString, number5AirSealPackageResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft5}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number5AirSealPackageResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number5AirSealPackageResult" value=" = #{measureBean.number5AirSealPackageResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 6. CAZ Area Report -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="6. CAZ Area Report:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number6CAZAreaReportCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number6CAZAreaReportResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number6CAZAreaReportString" value="#{measureBean.number6CAZAreaReportString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Add Ventilation to DHW Area for test out compliance" itemValue="0" />
+                                                                            <f:selectItem itemLabel="Add Ventilation to Furnace Area for test out compliance" itemValue="0" />
+                                                                            <f:selectItem itemLabel="Add Ventilation to DHW and Furnace Area for test out compliance" itemValue="0" />
+                                                                            <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0" />
+                                                                            <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0" />
+                                                                            <p:ajax event="change" update="number6CAZAreaReportString, number6CAZAreaReportResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft6}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number6CAZAreaReportResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number6CAZAreaReportResult" value=" = #{measureBean.number6CAZAreaReportResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 7a. Install R-8 Ducting Standalone -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="7a. Install R-8 Ducting Standalone:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number7AInstallDuctingStandaloneCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number7AInstallDuctingStandaloneResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number7AInstallDuctingStandaloneString" value="#{measureBean.number7AInstallDuctingStandaloneString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3300" />
+                                                                            <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3630" />
+                                                                            <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3800" />
+                                                                            <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4000" />
+                                                                            <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4650" />
+                                                                            <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="5150" />
+                                                                            <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic" itemValue="3050" />
+                                                                            <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3380" />
+                                                                            <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic" itemValue="3550" />
+                                                                            <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3750" />
+                                                                            <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic" itemValue="4400" />
+                                                                            <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic" itemValue="4900" />
+                                                                            <f:selectItem itemLabel="Install 2 Ton  Energy Star R-8 Ducting in Crawlspace" itemValue="3300" />
+                                                                            <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3630" />
+                                                                            <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3800" />
+                                                                            <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4000" />
+                                                                            <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4650" />
+                                                                            <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="5150" />
+                                                                            <p:ajax event="change" update="number6CAZAreaReportString, number7AInstallDuctingStandaloneResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:outputLabel  value="#{measureBean.sqft7a}" style="width:50px" />
+                                                                    </td>
+                                                                    <td style="width:70px; text-align: center"><p:outputLabel id="number7AInstallDuctingStandaloneResult" value="= #{measureBean.number7AInstallDuctingStandaloneResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 7B. Install R-8 Ducting w/ New HVAC System -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="7B. Install R-8 Ducting w/ New HVAC System:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number7BInstallR8DuctingNewHVACCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number7BInstallR8DuctingNewHVACResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number7BInstallR8DuctingNewHVACString" value="#{measureBean.number7BInstallR8DuctingNewHVACString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Install R-8 Radiant Barrier Ducting" itemValue="2" />
+                                                                            <p:ajax event="change" update="number7BInstallR8DuctingNewHVACString, number7BInstallR8DuctingNewHVACResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:inputText maxlength="5" value="#{measureBean.sqft7b}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number7BInstallR8DuctingNewHVACResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number7BInstallR8DuctingNewHVACResult" value=" = #{measureBean.number7BInstallR8DuctingNewHVACResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 8a. New HVAC System (ERI Private Label) -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="8a. New HVAC System (ERI Private Label):" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number8ANewHVACSystemERICheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number8ANewHVACSystemERIResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number8ANewHVACSystemERIString" value="#{measureBean.number8ANewHVACSystemERIString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
+                                                                            <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
+                                                                            <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
+                                                                            <p:ajax event="change" update="number8ANewHVACSystemERIString, number8ANewHVACSystemERIResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:outputLabel value="#{measureBean.sqft8a}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number8ANewHVACSystemERIResult, hpTotal" />
+                                                                        </p:outputLabel></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number8ANewHVACSystemERIResult" value=" = #{measureBean.number8ANewHVACSystemERIResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 8b. New HVAC System (ERI Private Label) -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="8b. New HVAC System (ERI Private Label):" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number8BNewHVACSystemERIPrivateCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number8BNewHVACSystemERIPrivateResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number8BNewHVACSystemERIPrivateString" value="#{measureBean.number8BNewHVACSystemERIPrivateString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
+                                                                            <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
+                                                                            <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
+                                                                            <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
+                                                                            <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
+                                                                            <p:ajax event="change" update="number8BNewHVACSystemERIPrivateString, number8BNewHVACSystemERIPrivateResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:outputLabel value="#{measureBean.sqft8b}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number8BNewHVACSystemERIPrivateResult, hpTotal" />
+                                                                        </p:outputLabel></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number8BNewHVACSystemERIPrivateResult" value=" = #{measureBean.number8BNewHVACSystemERIPrivateResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number8BIIIncludes10YearPartsCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number8BIIIncludes10YearPartsResult , hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px">
+                                                                        <p:outputLabel value="Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil" style="width:350px"  /></td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:outputLabel value="#{measureBean.sqft8bii}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number8BIIIncludes10YearPartsResult, hpTotal" />
+                                                                        </p:outputLabel></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number8BIIIncludes10YearPartsResult" value=" = #{measureBean.number8BIIIncludes10YearPartsResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 9. Single/Dual Zone HVAC System -->
+                                                    
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:outputLabel value="9. Single/Dual Zone HVAC System:" /></td></tr>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number9SingleDualZoneHVACSystemCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                            <p:ajax event="change" update="number9SingleDualZoneHVACSystemResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:400px"><p:selectOneMenu id="number9SingleDualZoneHVACSystemString" value="#{measureBean.number9SingleDualZoneHVACSystemString}" style="width:350px">
+                                                                            <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                            <f:selectItem itemLabel="Single Zone HVAC System" itemValue="0" />
+                                                                            <f:selectItem itemLabel="Dual Zone HVAC System" itemValue="1650" />
+                                                                            <p:ajax event="change" update="number9SingleDualZoneHVACSystemString, number9SingleDualZoneHVACSystemResult, hpTotal" />
+                                                                        </p:selectOneMenu>
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="sqft:  " /></td>
+                                                                    <td style="width:80px"><p:outputLabel value="#{measureBean.sqft9}" style="width:50px" >
+                                                                            <p:ajax event="keyup" update="number9SingleDualZoneHVACSystemResult, hpTotal" />
+                                                                        </p:outputLabel></td>
+                                                                    <td style="width:70px"><p:outputLabel id="number9SingleDualZoneHVACSystemResult" value=" = #{measureBean.number9SingleDualZoneHVACSystemResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+
+                                                    <!-- 9.1a Miscellaneous Items HVAC -->
+                                                    
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91aRelocateCondenserCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91aRelocateCondenserString, number91aRelocateCondenserResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="Cut in Supply Vent w/ New Duct: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91aRelocateCondenserString" value="#{measureBean.number91aRelocateCondenserString}">  
+                                                                             <p:ajax event="keyup" update="number91aRelocateCondenserResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91aRelocateCondenserResult" value=" = #{measureBean.number91aRelocateCondenserResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    <!-- 9.1b Cut in Supply Vent w/ New Duct: -->
+                                                    <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91bCutInSupplyVentNewDuctCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91bCutInSupplyVentNewDuctString, number91bCutInSupplyVentNewDuctResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="Cut in Supply Vent w/ New Duct: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91bCutInSupplyVentNewDuctString" value="#{measureBean.number91bCutInSupplyVentNewDuctString}">  
+                                                                             <p:ajax event="keyup" update="number91bCutInSupplyVentNewDuctResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91bCutInSupplyVentNewDuctResult" value=" = #{measureBean.number91bCutInSupplyVentNewDuctResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    <!-- 9.1c HVAC Cut In: -->
+                                                     <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91cHVACCutInCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91cHVACCutInString, number91cHVACCutInResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="HVAC Cut In: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91cHVACCutInString" value="#{measureBean.number91cHVACCutInString}">  
+                                                                             <p:ajax event="keyup" update="number91cHVACCutInResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91cHVACCutInResult" value=" = #{measureBean.number91cHVACCutInResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    <!-- 9.1d Duct Seal Only: -->
+                                                     <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91dDuctSealOnlyCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91dDuctSealOnlyString, number91dDuctSealOnlyResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="Duct Seal Only: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91dDuctSealOnlyString" value="#{measureBean.number91dDuctSealOnlyString}">  
+                                                                             <p:ajax event="keyup" update="number91dDuctSealOnlyResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91dDuctSealOnlyResult" value=" = #{measureBean.number91dDuctSealOnlyResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    <!-- 9.1e New Line Set: -->
+                                                     <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91eNewLineSetCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91eNewLineSetString, number91eNewLineSetResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="New Line Set: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91eNewLineSetString" value="#{measureBean.number91eNewLineSetString}">  
+                                                                             <p:ajax event="keyup" update="number91eNewLineSetResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91eNewLineSetResult" value=" = #{measureBean.number91eNewLineSetResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    <!-- 9.1f Enlarge Return Air / Add Return: -->
+                                                     <div>
+                                                        <h4><table>
+                                                                <tr><td style="width:120px"><p:selectBooleanButton value="#{measureBean.number91fEnlargeReturnAirCheckBox}" 
+                                                                                                                   onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91fEnlargeReturnAirString, number91fEnlargeReturnAirResult, hpTotal"  />
+                                                                        </p:selectBooleanButton>
+                                                                    </td>
+                                                                    <td style="width:300px"><p:outputLabel value="Cut in Supply Vent w/ New Duct: " />
+                                                                    </td>
+                                                                    <td style="width:50px"><p:outputLabel value="price:" /></td>
+                                                                    <td style="width:50px"><p:inputText id="number91fEnlargeReturnAirString" value="#{measureBean.number91fEnlargeReturnAirString}">  
+                                                                             <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                        </p:inputText>
+                                                                    </td>
+                                                                    <td style="width:100px; text-align: right"><p:outputLabel id="number91fEnlargeReturnAirResult" value=" = #{measureBean.number91fEnlargeReturnAirResult}" />
+                                                                    </td>
+                                                                </tr></table></h4>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    <!-- Total -->
+
+                                                    <h4><h:outputText id="hpTotal" value="total: #{measureBean.total} $" /></h4>
+                                                </td>
+                                                
+                                                
+                                            </tr></h4></table>    
+                                </div>
+
+                                <div class="measuresblock2" >
+                                    <table><h4><tr><td>
+                                                    
+                                                    <!-- second column -->
+                                                
+                                                <td>
+                                                    <div><h4><table>
+                                                                <tr>
+                                                                    <td><p:outputLabel value="10" /></td>
+                                                                    <td><p:outputLabel value="Install Windows" /></td>
+                                                                    <td><p:outputLabel value="# of windows" /></td>
+                                                                    <td><p:outputLabel value="total united inches" /></td>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><p:selectBooleanButton value="#{measureBean.number91eNewLineSetCheckBox}" onLabel="Yes" offLabel="No" style="width:60px" >
+                                                                                    <p:ajax event="change" update="number91eNewLineSetString, number91eNewLineSetResult, hpTotal"  />
+                                                                        </p:selectBooleanButton></td>
+                                                                    <td><p:outputLabel value="Install Monte Verde High Performance Retrofit Windows" /></td>
+                                                                    <td><p:inputText value="#{measureBean.number91fEnlargeReturnAirString}">  
+                                                                             <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td><p:inputText value="#{measureBean.number91fEnlargeReturnAirString}">  
+                                                                             <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                    <td><p:outputLabel value="If new construction is selected, it is at a higher cost" /></td>
+                                                                    <td><p:outputLabel value="#of sliders" /></td>
+                                                                    <td><p:outputLabel value="linear Feet" /></td>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                    <td><p:outputLabel value="AND Sliders" /></td>
+                                                                    <td><p:inputText value="#{measureBean.number91fEnlargeReturnAirString}">  
+                                                                             <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td><p:inputText value="#{measureBean.number91fEnlargeReturnAirString}">  
+                                                                             <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                        </p:inputText></td>
+                                                                    <td><p:outputLabel value="" /></td>
+                                                                </tr>
+                                                            </table>
+                                                        </h4>
+                                                    </div>
+                                                </td>
+                                                    
+                                                </td></tr></h4></table>
+
+                                </div>
+                                <div class="blockbottom" >
+                                    <p:commandButton value="toDashBoard" action="dashboard.xhtml" />
+                                </div>
+                            </div>
+                        </td></tr>
+                </table>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

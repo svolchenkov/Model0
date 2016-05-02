@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <table>
+                    <tr><td>
+                            <div id="mainBlock" >
+                                <div class="block1" >
+                                    <p:inputText value="#{financeBean.additionalNOTES}" />
+                                    <p:commandButton value="to measures" action="measures.xhtml" />
+                                </div>
+                                <div class="block2" >
+
+                                </div>
+                                <div class="block3" >
+                                    <p:inputText value="#{financeBean.additionalNOTES}" />
+                                </div>
+                                <div class="block4" >
+
+                                </div>
+                                <div class="blockbottom" >
+                                    <div><p:commandButton value="toMeasures" action="measures.xhtml" />
+                                        <p:commandButton value="toMeasures" action="measures.xhtml" />
+                                    </div>
+                                </div>
+                            </div>
+                        </td></tr>
+                </table>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
