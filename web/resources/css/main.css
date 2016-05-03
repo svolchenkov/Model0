@@ -67,9 +67,17 @@ and open the template in the editor.
     border-radius: 4px;
     box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
 }
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
 h2 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-
     font-size:  28px;
     font-weight: bold;
     margin: 0px;
@@ -90,6 +98,12 @@ h4 {
     font-size:  14px;
     font-weight: bold;
     color: darkred;
+}
+h5 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  12px;
+    font-weight: lighter;
+    color: darkblue;
 }
 
 
