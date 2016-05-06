@@ -106,125 +106,53 @@ h5 {
     color: darkblue;
 }
 
+/* Measures column */
+td{
+    text-align: left;
+    border: 1px solid black; 
+} 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.block10{
-    float:left;
-    margin:3px 3px 3px 5px;
-    width:700px;
-    height:800px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
-}
-.block11{
-    float:left;
-    margin:3px 3px 3px 5px;
-    width:700px;
-    height:800px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
-}
-.block22{
-    float:left;
-    margin:3px 3px 3px 5px;
-    width:1300px;
-    height:70px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+td.checkboxtd {
+    width:20px;
 }
 
-#financeMain{
-    margin:auto;
-    width:650px;
-
-    vertical-align: top;
-    font-weight: bold; 
-    color: darkred; 
-    font-size: 12px; 
-    font-style: italic;
-}
-.block31, .block32{
-    float:left;
-    margin:3px 3px 3px 5px;
-    width:300px;
-    height:120px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
-}
-.block33, .block34{
-    float:left;
-    margin:3px 3px 3px 5px;
-    width:300px;
-    height:180px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+td.titletd {
+    width:150px;
 }
 
-h2 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+td.fieldtd {
+    width:400px;
+}
+td.field {
+    width: 100%;
+}
+td.sqftpricelable {
+    width:50px;
+}
+td.sqftpricetd {
+    width:50px;
+}
+td.sqftprice {
+    width:50px;
+}
+td.resulttd {
+    width:70px;
+}
+table.measure {
+    color: darkblue;  
+} 
 
-    font-size:  28px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    color: white;
-}
-h3 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    color: darkred;
-}
-h4 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    font-size:  14px;
-    font-weight: bold;
-    color: darkred;
-}
-.cells {
-    font-size:  14px;
-    color: darkred;
-}
+/* measure, right column */
 
-.finance_center {
-    text-align: center;
+td.rightFieldtd {
+    width:400px;
+}
+td.rightItd {
+    width:90px;
+}
+td.rightJtd {
+    width:90px;
+}
+td.rightCosttd {
+    width:100px;
 }

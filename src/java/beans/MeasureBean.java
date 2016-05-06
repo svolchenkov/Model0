@@ -82,28 +82,85 @@ public class MeasureBean implements Serializable {
 
     private int sqft91;
     private boolean number91aRelocateCondenserCheckBox;
-    private String number91aRelocateCondenserString;
+    private int number91aRelocateCondenserInt;
     private double number91aRelocateCondenserResult;
 
     private boolean number91bCutInSupplyVentNewDuctCheckBox;
-    private String number91bCutInSupplyVentNewDuctString;
+    private int number91bCutInSupplyVentNewDuctInt;
     private double number91bCutInSupplyVentNewDuctResult;
 
     private boolean number91cHVACCutInCheckBox;
-    private String number91cHVACCutInString;
+    private int number91cHVACCutInInt;
     private double number91cHVACCutInResult;
 
     private boolean number91dDuctSealOnlyCheckBox;
-    private String number91dDuctSealOnlyString;
+    private int number91dDuctSealOnlyInt;
     private double number91dDuctSealOnlyResult;
 
     private boolean number91eNewLineSetCheckBox;
-    private String number91eNewLineSetString;
+    private int number91eNewLineSetInt;
     private double number91eNewLineSetResult;
 
     private boolean number91fEnlargeReturnAirCheckBox;
-    private String number91fEnlargeReturnAirString;
+    private int number91fEnlargeReturnAirInt;
     private double number91fEnlargeReturnAirResult;
+
+    private boolean number10InstallWindowsCheckBox;
+    private String number10numOfWindows;
+    private int number10TotalUnitedInchesInt;
+    private double number10InstallResult;
+    private String number10numOfSliders;
+    private String number10LinearFeet;
+    private double number10LinearFeetResult;
+
+    private boolean number101ACutInDoorCheckBox;
+    private int number101ACutInDoorInt;
+    private double number101ACutInDoorResult;
+
+    private boolean number101BAddHeaderCheckBox;
+    private int number101BAddHeaderInt;
+    private double number101BAddHeaderResult;
+
+    private boolean number102ACutDownWindowCheckBox;
+    private double number102ACutDownWindowResult;
+
+    private boolean number102BElectricalReroutesCheckBox;
+    private double number102BElectricalReroutesResult;
+
+    private boolean number102CGardenWindow4CheckBox;
+    private double number102CGardenWindow4Result;
+
+    private boolean number102DGardenWindow6CheckBox;
+    private double number102DGardenWindow6Result;
+
+    private boolean number103AllGlazingCheckBox;
+    private boolean number104WindowsToMatcCheckBox;
+
+    private boolean number11InstallPoolPumpCheckBox;
+    private double number11InstallPoolPumpResult;
+
+    private boolean number12InstallWholeHouseFanCheckBox;
+    private int number12InstallWholeHouseFanInt;
+    private double number12InstallWholeHouseFanResult;
+
+    private boolean number13InstallWaterHeaterCheckBox;
+    private int number13InstallWaterHeaterInt;
+    private double number13InstallWaterHeaterResult;
+    
+    private boolean number14PermitsCheckBox;
+    private double number14PermitsResult;
+    
+    private boolean number15InstallBatteryOperatedCheckBox;
+    private double number15InstallBatteryOperatedResult;
+    
+    private boolean number15AInstallKWDCSolarSystemCheckBox;
+    private int number15aInstallKWDCSolarSystemInt;
+    
+    private boolean number15BIncludesExtrudedAluminumCheckBox;
+    private boolean number15CSolarEdgeWithPowerOptimizersCheckBox;
+    private boolean number15DIncludesSystemPVProductionCheckBox;
+    private boolean number15EIncludesAllPermitsCheckBox;
+    private boolean number15FCanadianSolar270WattCheckBox;
 
     /**
      * Creates a new instance of MeasureBean
@@ -287,10 +344,6 @@ public class MeasureBean implements Serializable {
         } else {
             this.number5AirSealPackageString = "0";
         }
-        System.out.println("number5AirSealPackageCheckBox" + this.number5AirSealPackageCheckBox);
-        System.out.println("number5AirSealPackageString" + this.number5AirSealPackageString);
-        System.out.println("sqft5" + this.sqft5);
-        System.out.println("" + this.number5AirSealPackageResult);
         return number5AirSealPackageResult;
     }
 
@@ -427,6 +480,7 @@ public class MeasureBean implements Serializable {
 
     //******************************* 8a. New HVAC System (ERI Private Label) ******************************
     public int getSqft8a() {
+        this.sqft8a = 0;
         return sqft8a;
     }
 
@@ -611,23 +665,17 @@ public class MeasureBean implements Serializable {
         this.number91aRelocateCondenserCheckBox = number91aRelocateCondenserCheckBox;
     }
 
-    public String getNumber91aRelocateCondenserString() {
-        if (this.number91aRelocateCondenserString == null) {
-            this.number91aRelocateCondenserString = "0";
-        }
-//        if ( isNumber91aRelocateCondenserCheckBox() == false ) {
-//            this.number91aRelocateCondenserString = "0";
-//        }
-        return number91aRelocateCondenserString;
+    public int getNumber91aRelocateCondenserInt() {
+        return number91aRelocateCondenserInt;
     }
 
-    public void setNumber91aRelocateCondenserString(String number91aRelocateCondenserString) {
-        this.number91aRelocateCondenserString = number91aRelocateCondenserString;
+    public void setNumber91aRelocateCondenserInt(int number91aRelocateCondenserInt) {
+        this.number91aRelocateCondenserInt = number91aRelocateCondenserInt;
     }
 
     public double getNumber91aRelocateCondenserResult() {
         if (isNumber91aRelocateCondenserCheckBox() == true) {
-            this.number91aRelocateCondenserResult = Double.valueOf(getNumber91aRelocateCondenserString());
+            this.number91aRelocateCondenserResult = getNumber91aRelocateCondenserInt();
         } else {
             this.number91aRelocateCondenserResult = 0;
         }
@@ -639,7 +687,6 @@ public class MeasureBean implements Serializable {
     }
 
     //91b
-    
     public boolean isNumber91bCutInSupplyVentNewDuctCheckBox() {
         return number91bCutInSupplyVentNewDuctCheckBox;
     }
@@ -648,23 +695,17 @@ public class MeasureBean implements Serializable {
         this.number91bCutInSupplyVentNewDuctCheckBox = number91bCutInSupplyVentNewDuctCheckBox;
     }
 
-    public String getNumber91bCutInSupplyVentNewDuctString() {
-        if (this.number91bCutInSupplyVentNewDuctString == null) {
-            this.number91bCutInSupplyVentNewDuctString = "0";
-        }
-//        if ( isNumber91aRelocateCondenserCheckBox() == false ) {
-//            this.number91bCutInSupplyVentNewDuctString = "0";
-//        }
-        return number91bCutInSupplyVentNewDuctString;
+    public int getNumber91bCutInSupplyVentNewDuctInt() {
+        return number91bCutInSupplyVentNewDuctInt;
     }
 
-    public void setNumber91bCutInSupplyVentNewDuctString(String number91bCutInSupplyVentNewDuctString) {
-        this.number91bCutInSupplyVentNewDuctString = number91bCutInSupplyVentNewDuctString;
+    public void setNumber91bCutInSupplyVentNewDuctInt(int number91bCutInSupplyVentNewDuctInt) {
+        this.number91bCutInSupplyVentNewDuctInt = number91bCutInSupplyVentNewDuctInt;
     }
 
     public double getNumber91bCutInSupplyVentNewDuctResult() {
-        if ( isNumber91bCutInSupplyVentNewDuctCheckBox() == true ) {
-            this.number91bCutInSupplyVentNewDuctResult = Double.valueOf(getNumber91bCutInSupplyVentNewDuctString());
+        if (isNumber91bCutInSupplyVentNewDuctCheckBox() == true) {
+            this.number91bCutInSupplyVentNewDuctResult = getNumber91bCutInSupplyVentNewDuctInt();
         } else {
             this.number91bCutInSupplyVentNewDuctResult = 0;
         }
@@ -676,7 +717,6 @@ public class MeasureBean implements Serializable {
     }
 
     // 91c
-    
     public boolean isNumber91cHVACCutInCheckBox() {
         return number91cHVACCutInCheckBox;
     }
@@ -685,20 +725,17 @@ public class MeasureBean implements Serializable {
         this.number91cHVACCutInCheckBox = number91cHVACCutInCheckBox;
     }
 
-    public String getNumber91cHVACCutInString() {
-        if (this.number91cHVACCutInString == null) {
-            this.number91cHVACCutInString = "0";
-        }
-        return number91cHVACCutInString;
+    public int getNumber91cHVACCutInInt() {
+        return number91cHVACCutInInt;
     }
 
-    public void setNumber91cHVACCutInString(String number91cHVACCutInString) {
-        this.number91cHVACCutInString = number91cHVACCutInString;
+    public void setNumber91cHVACCutInInt(int number91cHVACCutInInt) {
+        this.number91cHVACCutInInt = number91cHVACCutInInt;
     }
 
     public double getNumber91cHVACCutInResult() {
-        if ( isNumber91cHVACCutInCheckBox() == true ) {
-            this.number91cHVACCutInResult = Double.valueOf(getNumber91cHVACCutInString());
+        if (isNumber91cHVACCutInCheckBox() == true) {
+            this.number91cHVACCutInResult = getNumber91cHVACCutInInt();
         } else {
             this.number91cHVACCutInResult = 0;
         }
@@ -710,7 +747,6 @@ public class MeasureBean implements Serializable {
     }
 
     // 91d
-    
     public boolean isNumber91dDuctSealOnlyCheckBox() {
         return number91dDuctSealOnlyCheckBox;
     }
@@ -719,20 +755,17 @@ public class MeasureBean implements Serializable {
         this.number91dDuctSealOnlyCheckBox = number91dDuctSealOnlyCheckBox;
     }
 
-    public String getNumber91dDuctSealOnlyString() {
-        if (this.number91dDuctSealOnlyString == null) {
-            this.number91dDuctSealOnlyString = "0";
-        }
-        return number91dDuctSealOnlyString;
+    public int getNumber91dDuctSealOnlyInt() {
+        return number91dDuctSealOnlyInt;
     }
 
-    public void setNumber91dDuctSealOnlyString(String number91dDuctSealOnlyString) {
-        this.number91dDuctSealOnlyString = number91dDuctSealOnlyString;
+    public void setNumber91dDuctSealOnlyInt(int number91dDuctSealOnlyInt) {
+        this.number91dDuctSealOnlyInt = number91dDuctSealOnlyInt;
     }
 
     public double getNumber91dDuctSealOnlyResult() {
-        if ( isNumber91dDuctSealOnlyCheckBox() == true ) {
-            this.number91dDuctSealOnlyResult = Double.valueOf(getNumber91dDuctSealOnlyString());
+        if (isNumber91dDuctSealOnlyCheckBox() == true) {
+            this.number91dDuctSealOnlyResult = getNumber91dDuctSealOnlyInt();
         } else {
             this.number91dDuctSealOnlyResult = 0;
         }
@@ -744,7 +777,6 @@ public class MeasureBean implements Serializable {
     }
 
     // 91e
-    
     public boolean isNumber91eNewLineSetCheckBox() {
         return number91eNewLineSetCheckBox;
     }
@@ -753,20 +785,17 @@ public class MeasureBean implements Serializable {
         this.number91eNewLineSetCheckBox = number91eNewLineSetCheckBox;
     }
 
-    public String getNumber91eNewLineSetString() {
-        if (this.number91eNewLineSetString == null) {
-            this.number91eNewLineSetString = "0";
-        }
-        return number91eNewLineSetString;
+    public int getNumber91eNewLineSetInt() {
+        return number91eNewLineSetInt;
     }
 
-    public void setNumber91eNewLineSetString(String number91eNewLineSetString) {
-        this.number91eNewLineSetString = number91eNewLineSetString;
+    public void setNumber91eNewLineSetInt(int number91eNewLineSetInt) {
+        this.number91eNewLineSetInt = number91eNewLineSetInt;
     }
 
     public double getNumber91eNewLineSetResult() {
-        if ( isNumber91eNewLineSetCheckBox() == true ) {
-            this.number91eNewLineSetResult = Double.valueOf(getNumber91eNewLineSetString());
+        if (isNumber91eNewLineSetCheckBox() == true) {
+            this.number91eNewLineSetResult = getNumber91eNewLineSetInt();
         } else {
             this.number91eNewLineSetResult = 0;
         }
@@ -778,7 +807,6 @@ public class MeasureBean implements Serializable {
     }
 
     //91f
-    
     public boolean isNumber91fEnlargeReturnAirCheckBox() {
         return number91fEnlargeReturnAirCheckBox;
     }
@@ -787,20 +815,17 @@ public class MeasureBean implements Serializable {
         this.number91fEnlargeReturnAirCheckBox = number91fEnlargeReturnAirCheckBox;
     }
 
-    public String getNumber91fEnlargeReturnAirString() {
-        if (this.number91fEnlargeReturnAirString == null) {
-            this.number91fEnlargeReturnAirString = "0";
-        }
-        return number91fEnlargeReturnAirString;
+    public int getNumber91fEnlargeReturnAirInt() {
+        return number91fEnlargeReturnAirInt;
     }
 
-    public void setNumber91fEnlargeReturnAirString(String number91fEnlargeReturnAirString) {
-        this.number91fEnlargeReturnAirString = number91fEnlargeReturnAirString;
+    public void setNumber91fEnlargeReturnAirInt(int number91fEnlargeReturnAirInt) {
+        this.number91fEnlargeReturnAirInt = number91fEnlargeReturnAirInt;
     }
 
     public double getNumber91fEnlargeReturnAirResult() {
         if ( isNumber91fEnlargeReturnAirCheckBox() == true ) {
-            this.number91fEnlargeReturnAirResult = Double.valueOf(getNumber91fEnlargeReturnAirString());
+            this.number91fEnlargeReturnAirResult = getNumber91fEnlargeReturnAirInt();
         } else {
             this.number91fEnlargeReturnAirResult = 0;
         }
@@ -810,20 +835,443 @@ public class MeasureBean implements Serializable {
     public void setNumber91fEnlargeReturnAirResult(double number91fEnlargeReturnAirResult) {
         this.number91fEnlargeReturnAirResult = number91fEnlargeReturnAirResult;
     }
-    
-    
+    //***************************** 10. Install Windows:  ******************************************
 
-    //***********************************************************************
+    public String getNumber10numOfWindows() {
+        if (this.number10numOfWindows == null) {
+            this.number10numOfWindows = "0";
+        }
+        return number10numOfWindows;
+    }
+
+    public void setNumber10numOfWindows(String number10numOfWindows) {
+        this.number10numOfWindows = number10numOfWindows;
+    }
+
+    public boolean isNumber10InstallWindowsCheckBox() {
+        return number10InstallWindowsCheckBox;
+    }
+
+    public void setNumber10InstallWindowsCheckBox(boolean number10InstallWindowsCheckBox) {
+        setNumber103AllGlazingCheckBox(number10InstallWindowsCheckBox);
+        setNumber104WindowsToMatcCheckBox(number10InstallWindowsCheckBox);
+        this.number10InstallWindowsCheckBox = number10InstallWindowsCheckBox;
+    }
+
+    public int getNumber10TotalUnitedInchesInt() {
+        return number10TotalUnitedInchesInt;
+    }
+
+    public void setNumber10TotalUnitedInchesInt(int number10TotalUnitedInchesInt) {
+        this.number10TotalUnitedInchesInt = number10TotalUnitedInchesInt;
+    }
+
+    public double getNumber10InstallResult() {
+        if (isNumber10InstallWindowsCheckBox() == true) {
+            this.number10InstallResult = getNumber10TotalUnitedInchesInt() * 4.25;
+        } else {
+            this.number10InstallResult = 0;
+        }
+        return number10InstallResult;
+    }
+
+    public void setNumber10InstallResult(double number10InstallResult) {
+        this.number10InstallResult = number10InstallResult;
+    }
+
+    public String getNumber10numOfSliders() {
+        if (this.number10numOfSliders == null) {
+            this.number10numOfSliders = "0";
+        }
+        return number10numOfSliders;
+    }
+
+    public void setNumber10numOfSliders(String number10numOfSliders) {
+        this.number10numOfSliders = number10numOfSliders;
+    }
+
+    public String getNumber10LinearFeet() {
+        if (this.number10LinearFeet == null) {
+            this.number10LinearFeet = "0";
+        }
+        return number10LinearFeet;
+    }
+
+    public void setNumber10LinearFeet(String number10LinearFeet) {
+        this.number10LinearFeet = number10LinearFeet;
+    }
+
+    public double getNumber10LinearFeetResult() {
+        if (isNumber10InstallWindowsCheckBox() == true) {
+            this.number10LinearFeetResult = Double.valueOf(getNumber10LinearFeet());
+        } else {
+            this.number10LinearFeetResult = 0;
+        }
+        return number10LinearFeetResult;
+    }
+
+    public void setNumber10LinearFeetResult(double number10LinearFeetResult) {
+        this.number10LinearFeetResult = number10LinearFeetResult;
+    }
+
+    //***************************** 101A. Install Windows:  ******************************************
+    public boolean isNumber101ACutInDoorCheckBox() {
+        return number101ACutInDoorCheckBox;
+    }
+
+    public void setNumber101ACutInDoorCheckBox(boolean number101ACutInDoorCheckBox) {
+        this.number101ACutInDoorCheckBox = number101ACutInDoorCheckBox;
+    }
+
+    public int getNumber101ACutInDoorInt() {
+        return number101ACutInDoorInt;
+    }
+
+    public void setNumber101ACutInDoorInt(int number101ACutInDoorInt) {
+        this.number101ACutInDoorInt = number101ACutInDoorInt;
+    }
+
+    public double getNumber101ACutInDoorResult() {
+        if (isNumber101ACutInDoorCheckBox() == true) {
+            this.number101ACutInDoorResult = getNumber101ACutInDoorInt() * 125;
+        } else {
+            this.number101ACutInDoorResult = 0;
+        }
+        return number101ACutInDoorResult;
+    }
+
+    public void setNumber101ACutInDoorResult(double number101ACutInDoorResult) {
+        this.number101ACutInDoorResult = number101ACutInDoorResult;
+    }
+
+    //***************************** 101B. Add Header:  ******************************************
+    public boolean isNumber101BAddHeaderCheckBox() {
+        return number101BAddHeaderCheckBox;
+    }
+
+    public void setNumber101BAddHeaderCheckBox(boolean number101BAddHeaderCheckBox) {
+        this.number101BAddHeaderCheckBox = number101BAddHeaderCheckBox;
+    }
+
+    public int getNumber101BAddHeaderInt() {
+        return number101BAddHeaderInt;
+    }
+
+    public void setNumber101BAddHeaderInt(int number101BAddHeaderInt) {
+        this.number101BAddHeaderInt = number101BAddHeaderInt;
+    }
+
+    public double getNumber101BAddHeaderResult() {
+        if (isNumber101BAddHeaderCheckBox() == true) {
+            this.number101BAddHeaderResult = getNumber101BAddHeaderInt() * 100;
+        } else {
+            this.number101BAddHeaderResult = 0;
+        }
+        return number101BAddHeaderResult;
+    }
+
+    public void setNumber101BAddHeaderResult(double number101BAddHeaderResult) {
+        this.number101BAddHeaderResult = number101BAddHeaderResult;
+    }
+
+    //***************************** 102B Misc. Items (Windows, Bulk)  ******************************************
+    public boolean isNumber102ACutDownWindowCheckBox() {
+        return number102ACutDownWindowCheckBox;
+    }
+
+    public void setNumber102ACutDownWindowCheckBox(boolean number102ACutDownWindowCheckBox) {
+        this.number102ACutDownWindowCheckBox = number102ACutDownWindowCheckBox;
+    }
+
+    public double getNumber102ACutDownWindowResult() {
+        if (isNumber102ACutDownWindowCheckBox() == true) {
+            this.number102ACutDownWindowResult = 400;
+        } else {
+            this.number102ACutDownWindowResult = 0;
+        }
+        return number102ACutDownWindowResult;
+    }
+
+    public void setNumber102ACutDownWindowResult(double number102ACutDownWindowResult) {
+        this.number102ACutDownWindowResult = number102ACutDownWindowResult;
+    }
+
+    public boolean isNumber102BElectricalReroutesCheckBox() {
+        return number102BElectricalReroutesCheckBox;
+    }
+
+    public void setNumber102BElectricalReroutesCheckBox(boolean number102BElectricalReroutesCheckBox) {
+        this.number102BElectricalReroutesCheckBox = number102BElectricalReroutesCheckBox;
+    }
+
+    public double getNumber102BElectricalReroutesResult() {
+        if (isNumber102BElectricalReroutesCheckBox() == true) {
+            this.number102BElectricalReroutesResult = 200;
+        } else {
+            this.number102BElectricalReroutesResult = 0;
+        }
+        return number102BElectricalReroutesResult;
+    }
+
+    public void setNumber102BElectricalReroutesResult(double number102BElectricalReroutesResult) {
+        this.number102BElectricalReroutesResult = number102BElectricalReroutesResult;
+    }
+
+    public boolean isNumber102CGardenWindow4CheckBox() {
+        return number102CGardenWindow4CheckBox;
+    }
+
+    public void setNumber102CGardenWindow4CheckBox(boolean number102CGardenWindow4CheckBox) {
+        this.number102CGardenWindow4CheckBox = number102CGardenWindow4CheckBox;
+    }
+
+    public double getNumber102CGardenWindow4Result() {
+        if (isNumber102CGardenWindow4CheckBox() == true) {
+            this.number102CGardenWindow4Result = 1200;
+        } else {
+            this.number102CGardenWindow4Result = 0;
+        }
+        return number102CGardenWindow4Result;
+    }
+
+    public void setNumber102CGardenWindow4Result(double number102CGardenWindow4Result) {
+        this.number102CGardenWindow4Result = number102CGardenWindow4Result;
+    }
+
+    public boolean isNumber102DGardenWindow6CheckBox() {
+        return number102DGardenWindow6CheckBox;
+    }
+
+    public void setNumber102DGardenWindow6CheckBox(boolean number102DGardenWindow6CheckBox) {
+        this.number102DGardenWindow6CheckBox = number102DGardenWindow6CheckBox;
+    }
+
+    public double getNumber102DGardenWindow6Result() {
+        if (isNumber102DGardenWindow6CheckBox() == true) {
+            this.number102DGardenWindow6Result = 1400;
+        } else {
+            this.number102DGardenWindow6Result = 0;
+        }
+        return number102DGardenWindow6Result;
+    }
+
+    public void setNumber102DGardenWindow6Result(double number102DGardenWindow6Result) {
+        this.number102DGardenWindow6Result = number102DGardenWindow6Result;
+    }
+
+    //******************************** 103 + 104 *************************************
+    public boolean isNumber103AllGlazingCheckBox() {
+        return number103AllGlazingCheckBox;
+    }
+
+    public void setNumber103AllGlazingCheckBox(boolean number103AllGlazingCheckBox) {
+        this.number103AllGlazingCheckBox = number103AllGlazingCheckBox;
+    }
+
+    public boolean isNumber104WindowsToMatcCheckBox() {
+        return number104WindowsToMatcCheckBox;
+    }
+
+    public void setNumber104WindowsToMatcCheckBox(boolean number104WindowsToMatcCheckBox) {
+        this.number104WindowsToMatcCheckBox = number104WindowsToMatcCheckBox;
+    }
+
+    //******************************** 11 Install Pool Pump *************************************
+    public boolean isNumber11InstallPoolPumpCheckBox() {
+        return number11InstallPoolPumpCheckBox;
+    }
+
+    public void setNumber11InstallPoolPumpCheckBox(boolean number11InstallPoolPumpCheckBox) {
+        this.number11InstallPoolPumpCheckBox = number11InstallPoolPumpCheckBox;
+    }
+
+    public double getNumber11InstallPoolPumpResult() {
+        if (isNumber11InstallPoolPumpCheckBox() == true) {
+            this.number11InstallPoolPumpResult = 1500;
+        } else {
+            this.number11InstallPoolPumpResult = 0;
+        }
+        return number11InstallPoolPumpResult;
+    }
+
+    public void setNumber11InstallPoolPumpResult(double number11InstallPoolPumpResult) {
+        this.number11InstallPoolPumpResult = number11InstallPoolPumpResult;
+    }
+
+    //******************************** 12 Install Whole House Fan *************************************
+    public boolean isNumber12InstallWholeHouseFanCheckBox() {
+        return number12InstallWholeHouseFanCheckBox;
+    }
+
+    public void setNumber12InstallWholeHouseFanCheckBox(boolean number12InstallWholeHouseFanCheckBox) {
+        this.number12InstallWholeHouseFanCheckBox = number12InstallWholeHouseFanCheckBox;
+    }
+
+    public int getNumber12InstallWholeHouseFanInt() {
+        return number12InstallWholeHouseFanInt;
+    }
+
+    public void setNumber12InstallWholeHouseFanInt(int number12InstallWholeHouseFanInt) {
+        this.number12InstallWholeHouseFanInt = number12InstallWholeHouseFanInt;
+    }
+
+    public double getNumber12InstallWholeHouseFanResult() {
+        if (isNumber12InstallWholeHouseFanCheckBox() == true) {
+            this.number12InstallWholeHouseFanResult = getNumber12InstallWholeHouseFanInt();
+        } else {
+            this.number12InstallWholeHouseFanResult = 0;
+        }
+        return number12InstallWholeHouseFanResult;
+    }
+
+    public void setNumber12InstallWholeHouseFanResult(double number12InstallWholeHouseFanResult) {
+        this.number12InstallWholeHouseFanResult = number12InstallWholeHouseFanResult;
+    }
+
+    //******************************** 13 Install Water Heater *************************************
+    public boolean isNumber13InstallWaterHeaterCheckBox() {
+        return number13InstallWaterHeaterCheckBox;
+    }
+
+    public void setNumber13InstallWaterHeaterCheckBox(boolean number13InstallWaterHeaterCheckBox) {
+        this.number13InstallWaterHeaterCheckBox = number13InstallWaterHeaterCheckBox;
+    }
+
+    public int getNumber13InstallWaterHeaterInt() {
+        return number13InstallWaterHeaterInt;
+    }
+
+    public void setNumber13InstallWaterHeaterInt(int number13InstallWaterHeaterInt) {
+        this.number13InstallWaterHeaterInt = number13InstallWaterHeaterInt;
+    }
+
+    public double getNumber13InstallWaterHeaterResult() {
+        if (isNumber13InstallWaterHeaterCheckBox() == true) {
+            this.number13InstallWaterHeaterResult = getNumber13InstallWaterHeaterInt();
+        } else {
+            this.number13InstallWaterHeaterResult = 0;
+        }
+        return number13InstallWaterHeaterResult;
+    }
+
+    public void setNumber13InstallWaterHeaterResult(double number13InstallWaterHeaterResult) {
+        this.number13InstallWaterHeaterResult = number13InstallWaterHeaterResult;
+    }
+    
+    //******************************** 14 Permits *************************************
+
+    public boolean isNumber14PermitsCheckBox() {
+        return number14PermitsCheckBox;
+    }
+
+    public void setNumber14PermitsCheckBox(boolean number14PermitsCheckBox) {
+        this.number14PermitsCheckBox = number14PermitsCheckBox;
+    }
+
+    public double getNumber14PermitsResult() {
+        this.number14PermitsResult = 0;
+        return number14PermitsResult;
+    }
+
+    public void setNumber14PermitsResult(double number14PermitsResult) {
+        this.number14PermitsResult = number14PermitsResult;
+    }
+    
+    //******************************** 15 Install battery-operated CO and smoke detectors as needed *************************************
+
+    public boolean isNumber15InstallBatteryOperatedCheckBox() {
+        return number15InstallBatteryOperatedCheckBox;
+    }
+
+    public void setNumber15InstallBatteryOperatedCheckBox(boolean number15InstallBatteryOperatedCheckBox) {
+        this.number15InstallBatteryOperatedCheckBox = number15InstallBatteryOperatedCheckBox;
+    }
+
+    public double getNumber15InstallBatteryOperatedResult() {
+        this.number15InstallBatteryOperatedResult = 0;
+        return number15InstallBatteryOperatedResult;
+    }
+
+    public void setNumber15InstallBatteryOperatedResult(double number15InstallBatteryOperatedResult) {
+        this.number15InstallBatteryOperatedResult = number15InstallBatteryOperatedResult;
+    }
+    
+    //******************************** 15A Install KW DC Solar System *************************************
+
+    public boolean isNumber15AInstallKWDCSolarSystemCheckBox() {
+        return number15AInstallKWDCSolarSystemCheckBox;
+    }
+
+    public void setNumber15AInstallKWDCSolarSystemCheckBox(boolean number15AInstallKWDCSolarSystemCheckBox) {
+        this.number15AInstallKWDCSolarSystemCheckBox = number15AInstallKWDCSolarSystemCheckBox;
+    }
+
+    public int getNumber15aInstallKWDCSolarSystemInt() {
+        return number15aInstallKWDCSolarSystemInt;
+    }
+
+    public void setNumber15aInstallKWDCSolarSystemInt(int number15aInstallKWDCSolarSystemInt) {
+        this.number15aInstallKWDCSolarSystemInt = number15aInstallKWDCSolarSystemInt;
+    }
+    
+    //******************************** 15B-F *************************************
+
+    public boolean isNumber15BIncludesExtrudedAluminumCheckBox() {
+        return number15BIncludesExtrudedAluminumCheckBox;
+    }
+
+    public void setNumber15BIncludesExtrudedAluminumCheckBox(boolean number15BIncludesExtrudedAluminumCheckBox) {
+        this.number15BIncludesExtrudedAluminumCheckBox = number15BIncludesExtrudedAluminumCheckBox;
+    }
+
+    public boolean isNumber15CSolarEdgeWithPowerOptimizersCheckBox() {
+        return number15CSolarEdgeWithPowerOptimizersCheckBox;
+    }
+
+    public void setNumber15CSolarEdgeWithPowerOptimizersCheckBox(boolean number15CSolarEdgeWithPowerOptimizersCheckBox) {
+        this.number15CSolarEdgeWithPowerOptimizersCheckBox = number15CSolarEdgeWithPowerOptimizersCheckBox;
+    }
+
+    public boolean isNumber15DIncludesSystemPVProductionCheckBox() {
+        return number15DIncludesSystemPVProductionCheckBox;
+    }
+
+    public void setNumber15DIncludesSystemPVProductionCheckBox(boolean number15DIncludesSystemPVProductionCheckBox) {
+        this.number15DIncludesSystemPVProductionCheckBox = number15DIncludesSystemPVProductionCheckBox;
+    }
+
+    public boolean isNumber15EIncludesAllPermitsCheckBox() {
+        return number15EIncludesAllPermitsCheckBox;
+    }
+
+    public void setNumber15EIncludesAllPermitsCheckBox(boolean number15EIncludesAllPermitsCheckBox) {
+        this.number15EIncludesAllPermitsCheckBox = number15EIncludesAllPermitsCheckBox;
+    }
+
+    public boolean isNumber15FCanadianSolar270WattCheckBox() {
+        return number15FCanadianSolar270WattCheckBox;
+    }
+
+    public void setNumber15FCanadianSolar270WattCheckBox(boolean number15FCanadianSolar270WattCheckBox) {
+        this.number15FCanadianSolar270WattCheckBox = number15FCanadianSolar270WattCheckBox;
+    }
+    
+    //*********************************************************************
     public double getTotal() {
         this.total = getNumber1InsulatAtticBlownResult() + getNumber2RemoveAndReplaceResult()
                 + getNumber3InstallBattedInsulationResult() + getNumber4SealDuctingCodeComplianceResult()
                 + getNumber5AirSealPackageResult() + getNumber6CAZAreaReportResult()
                 + getNumber7AInstallDuctingStandaloneResult() + getNumber7BInstallR8DuctingNewHVACResult()
                 + getNumber8ANewHVACSystemERIResult() + getNumber8BNewHVACSystemERIPrivateResult()
-                + getNumber8BIIIncludes10YearPartsResult() + getNumber9SingleDualZoneHVACSystemResult() 
+                + getNumber8BIIIncludes10YearPartsResult() + getNumber9SingleDualZoneHVACSystemResult()
                 + getNumber91aRelocateCondenserResult() + getNumber91bCutInSupplyVentNewDuctResult()
-                +getNumber91cHVACCutInResult() + getNumber91dDuctSealOnlyResult()
-                + getNumber91eNewLineSetResult() + getNumber91fEnlargeReturnAirResult();
+                + getNumber91cHVACCutInResult() + getNumber91dDuctSealOnlyResult()
+                + getNumber91eNewLineSetResult() + getNumber91fEnlargeReturnAirResult()
+                + getNumber10InstallResult() + getNumber10LinearFeetResult() + getNumber101ACutInDoorResult()
+                + getNumber101BAddHeaderResult() + getNumber102ACutDownWindowResult() + getNumber102BElectricalReroutesResult()
+                + getNumber102CGardenWindow4Result() + getNumber102DGardenWindow6Result() + getNumber11InstallPoolPumpResult()
+                + getNumber12InstallWholeHouseFanResult() + getNumber13InstallWaterHeaterResult() + getNumber14PermitsResult()
+                + getNumber15InstallBatteryOperatedResult();
         return total;
     }
 
